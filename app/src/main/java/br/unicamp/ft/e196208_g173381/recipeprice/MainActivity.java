@@ -3,6 +3,9 @@ package br.unicamp.ft.e196208_g173381.recipeprice;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +19,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private FragmentManager fragmentManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +28,30 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.add);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                if (fragmentManager.findFragmentByTag("produtos") != null) {
+                    if (fragmentManager.findFragmentByTag("produtos").isVisible()) {
+                        Snackbar.make(view, "É produto", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                        Fragment cadastroProdutosFragment = new CadastroProdutoFragment();
+                        replaceFragment(cadastroProdutosFragment, "cadastroProdutos");
+                    }
+                } else if (fragmentManager.findFragmentByTag("receitas") != null && fragmentManager.findFragmentByTag("receitas").isVisible()) {
+
+                    Snackbar.make(view, "É receita", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    Fragment cadastroReceitasFragment = new CadastroReceitasFragment();
+                    replaceFragment(cadastroReceitasFragment, "cadastroProdutos");
+                } else {
+                    Snackbar.make(view, "Não é produto", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+
+
             }
         });
 
@@ -40,6 +63,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState == null) {
+            fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            MyFirstFragment f1 = new MyFirstFragment();
+            fragmentTransaction.add(R.id.frame, f1, "f1_tag");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+
     }
 
     @Override
@@ -80,9 +113,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_produtos) {
+            Fragment produtosFragment = new ProdutosFragment();
+            replaceFragment(produtosFragment, "produtos");
+
+        } else if (id == R.id.nav_receitas) {
+            Fragment receitasFragment = new ReceitasFragment();
+            replaceFragment(receitasFragment, "receitas");
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -97,5 +134,25 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void replaceFragment(Fragment fragment, String tag) {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame, fragment, tag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public void showReceita(int position){
+
+        ShowReceitasFragments showReceitasFragments = (ShowReceitasFragments) fragmentManager.findFragmentByTag("showReceitas");
+
+        if(showReceitasFragments == null){
+            showReceitasFragments = new ShowReceitasFragments();
+        }
+
+        showReceitasFragments.setPosition(position);
+        replaceFragment(showReceitasFragments, "showReceitas");
+
     }
 }

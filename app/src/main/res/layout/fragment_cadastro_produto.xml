@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroProdutoFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lblNomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome" />
+    <EditText
+        android:id="@+id/txtNomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lblNomeTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo Unidade de Medida" />
+
+    <Spinner
+        android:id="@+id/spinnerUnidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lblPrecoProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Preco" />
+    <EditText
+        android:id="@+id/txtValorProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Cadastrar"/>
+
+
+</LinearLayout>

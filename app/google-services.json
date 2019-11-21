@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "109940126300",
+    "firebase_url": "https://recipeprice-43100.firebaseio.com",
+    "project_id": "recipeprice-43100",
+    "storage_bucket": "recipeprice-43100.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109940126300:android:6a3f1e0d0e459b817dac99",
+        "android_client_info": {
+          "package_name": "br.unicamp.ft.e196208_g173381.recipeprice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109940126300-ftoo1cpl3o5bbim32icbgif75megk0ji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.unicamp.ft.e196208_g173381.recipeprice",
+            "certificate_hash": "4fc77de003a7a80baaa15fdc19fb471cec8bba3e"
+          }
+        },
+        {
+          "client_id": "109940126300-08hpvsr3ffkoqadhl9d9s1k8auut4vhu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZQeyZXYvspe4T9zAsghx1_KWPaWZqlw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109940126300-08hpvsr3ffkoqadhl9d9s1k8auut4vhu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

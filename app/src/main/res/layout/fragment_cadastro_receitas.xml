@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CadastroReceitasFragment">
+
+    <TextView
+        android:id="@+id/lblNomeReceita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome" />
+    <EditText
+        android:id="@+id/txtNomeCadastroReceita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lblReceitaProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo Unidade de Medida" />
+
+    <Spinner
+        android:id="@+id/spinnerProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lblNomeUnidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo Unidade de Medida" />
+
+
+    <Spinner
+        android:id="@+id/spinnerUnidadeReceita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/lblQuantidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantidade" />
+    <EditText
+        android:id="@+id/txtQuantidadeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    <Button
+        android:id="@+id/btnAddReceita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Inserir Na Receita"/>
+    <Button
+        android:id="@+id/btnSalvarReceita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Salvar Receita"/>
+
+</LinearLayout>
